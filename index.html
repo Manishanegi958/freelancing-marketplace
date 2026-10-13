@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find freelance projects, connect with talented freelancers, and grow your career.">
+    <title>SkillBridge | Freelancing Marketplace</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header class="navbar">
+        <a href="#home" class="logo">Skill<span>Bridge</span></a>
+
+        <button class="menu-toggle" id="menuToggle"
+                aria-label="Toggle navigation" aria-expanded="false">
+            ☰
+        </button>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#projects">Find Projects</a>
+            <a href="#freelancers">Freelancers</a>
+            <a href="#post-project">Post a Project</a>
+            <a href="#dashboard">Dashboard</a>
+        </nav>
+
+        <a href="#projects" class="nav-button">Get Started</a>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <span class="eyebrow">YOUR NEXT OPPORTUNITY STARTS HERE</span>
+                <h1>Great work starts with the <span>right connection.</span></h1>
+                <p>
+                    Find exciting freelance projects, meet talented professionals,
+                    and turn your skills into meaningful work.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">Explore Projects →</a>
+                    <a href="#post-project" class="btn btn-outline">Hire a Freelancer</a>
+                </div>
+
+                <div class="hero-stats">
+                    <div><strong>500+</strong><small>Sample Projects</small></div>
+                    <div><strong>1,200+</strong><small>Talented Freelancers</small></div>
+                    <div><strong>20+</strong><small>Skill Categories</small></div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="visual-card visual-main">
+                    <div class="visual-icon">💻</div>
+                    <h3>Work on what you love.</h3>
+                    <p>Discover projects that match your skills and interests.</p>
+                    <div class="progress-line"><span></span></div>
+                    <small>New opportunities every day</small>
+                </div>
+                <div class="floating-card">✨ Your next big idea starts here!</div>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="section categories-section" id="categories">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">EXPLORE YOUR POTENTIAL</span>
+                    <h2>Popular Categories</h2>
+                </div>
+                <p>Find work that fits your talents.</p>
+            </div>
+
+            <div class="category-grid">
+                <button class="category-card" data-category="Web Development">
+                    <span>💻</span><h3>Web Development</h3><p>Websites & apps</p>
+                </button>
+                <button class="category-card" data-category="Graphic Design">
+                    <span>🎨</span><h3>Graphic Design</h3><p>Creative designs</p>
+                </button>
+                <button class="category-card" data-category="Content Writing">
+                    <span>✍️</span><h3>Content Writing</h3><p>Words that connect</p>
+                </button>
+                <button class="category-card" data-category="Digital Marketing">
+                    <span>📈</span><h3>Digital Marketing</h3><p>Grow businesses</p>
+                </button>
+                <button class="category-card" data-category="Video Editing">
+                    <span>🎬</span><h3>Video Editing</h3><p>Stories in motion</p>
+                </button>
+                <button class="category-card" data-category="Data Entry">
+                    <span>📊</span><h3>Data Entry</h3><p>Organized information</p>
+                </button>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="section projects-section" id="projects">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">FIND YOUR NEXT PROJECT</span>
+                    <h2>Latest Opportunities</h2>
+                </div>
+                <p>Handpicked sample projects to get you started.</p>
+            </div>
+
+            <div class="filter-bar">
+                <input type="search" id="projectSearch"
+                       placeholder="Search projects or skills..."
+                       aria-label="Search projects or skills">
+
+                <select id="categoryFilter" aria-label="Filter by category">
+                    <option value="">All Categories</option>
+                    <option>Web Development</option>
+                    <option>Graphic Design</option>
+                    <option>Content Writing</option>
+                    <option>Digital Marketing</option>
+                    <option>Video Editing</option>
+                    <option>Data Entry</option>
+                </select>
+
+                <select id="budgetFilter" aria-label="Filter by budget">
+                    <option value="">Any Budget</option>
+                    <option value="5000">Up to ₹5,000</option>
+                    <option value="10000">Up to ₹10,000</option>
+                    <option value="20000">Up to ₹20,000</option>
+                </select>
+            </div>
+
+            <p class="results-count" id="projectCount" aria-live="polite"></p>
+            <div class="project-grid" id="projectList"></div>
+        </section>
+
+        <!-- Freelancers -->
+        <section class="section freelancers-section" id="freelancers">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">MEET THE TALENT</span>
+                    <h2>Featured Freelancers</h2>
+                </div>
+                <p>Creative people ready to bring ideas to life.</p>
+            </div>
+
+            <div class="filter-bar freelancer-filters">
+                <input type="search" id="freelancerSearch"
+                       placeholder="Search by name or skill..."
+                       aria-label="Search freelancers">
+
+                <select id="experienceFilter" aria-label="Filter by experience">
+                    <option value="">All Experience Levels</option>
+                    <option value="Beginner">Beginner</option>
+                    <option value="Intermediate">Intermediate</option>
+                    <option value="Expert">Expert</option>
+                </select>
+            </div>
+
+            <div class="freelancer-grid" id="freelancerList"></div>
+        </section>
+
+        <!-- Post Project -->
+        <section class="section post-section" id="post-project">
+            <div class="post-intro">
+                <span class="eyebrow">HAVE AN IDEA?</span>
+                <h2>Let's find the right person for your project.</h2>
+                <p>
+                    Tell us what you need. Create a project listing and connect
+                    with freelancers who have the skills to help.
+                </p>
+                <div class="post-benefit">✓ Describe your project clearly</div>
+                <div class="post-benefit">✓ Add your budget and deadline</div>
+                <div class="post-benefit">✓ Review your project in the dashboard</div>
+            </div>
+
+            <form id="postProjectForm" class="form-card">
+                <h3>Post a New Project</h3>
+
+                <label for="clientName">Your name or company</label>
+                <input id="clientName" name="clientName" type="text"
+                       placeholder="e.g. Bright Ideas Studio" required maxlength="80">
+
+                <label for="projectTitle">Project title</label>
+                <input id="projectTitle" name="projectTitle" type="text"
+                       placeholder="e.g. Build a business website" required maxlength="100">
+
+                <label for="projectCategory">Category</label>
+                <select id="projectCategory" name="category" required>
+                    <option value="">Choose a category</option>
+                    <option>Web Development</option>
+                    <option>Graphic Design</option>
+                    <option>Content Writing</option>
+                    <option>Digital Marketing</option>
+                    <option>Video Editing</option>
+                    <option>Data Entry</option>
+                </select>
+
+                <div class="form-row">
+                    <div>
+                        <label for="projectBudget">Budget (₹)</label>
+                        <input id="projectBudget" name="budget" type="number"
+                               min="1" max="10000000" placeholder="5000" required>
+                    </div>
+                    <div>
+                        <label for="projectDeadline">Deadline</label>
+                        <input id="projectDeadline" name="deadline"
+                               type="date" required>
+                    </div>
+                </div>
+
+                <label for="projectSkills">Required skills</label>
+                <input id="projectSkills" name="skills" type="text"
+                       placeholder="HTML, CSS, JavaScript" required maxlength="200">
+
+                <label for="projectDescription">Project description</label>
+                <textarea id="projectDescription" name="description" rows="4"
+                          placeholder="Describe what you need..." required
+                          minlength="15" maxlength="1500"></textarea>
+
+                <button type="submit" class="btn btn-primary full-button">
+                    Publish Project
+                </button>
+                <p class="form-message" id="postMessage" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <!-- Dashboard -->
+        <section class="section dashboard-section" id="dashboard">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">YOUR WORKSPACE</span>
+                    <h2>My Dashboard</h2>
+                </div>
+                <p>Keep track of your activity in one place.</p>
+            </div>
+
+            <div class="dashboard-stats">
+                <article class="stat-card">
+                    <span>📁</span><p>Posted Projects</p>
+                    <strong id="postedCount">0</strong>
+                </article>
+                <article class="stat-card">
+                    <span>📨</span><p>Submitted Proposals</p>
+                    <strong id="proposalCount">0</strong>
+                </article>
+                <article class="stat-card">
+                    <span>🟢</span><p>Open Projects</p>
+                    <strong id="openCount">0</strong>
+                </article>
+            </div>
+
+            <div class="dashboard-columns">
+                <div class="dashboard-panel">
+                    <h3>My Posted Projects</h3>
+                    <div id="dashboardProjects" class="dashboard-list"></div>
+                </div>
+
+                <div class="dashboard-panel">
+                    <h3>My Submitted Proposals</h3>
+                    <div id="dashboardProposals" class="dashboard-list"></div>
+                </div>
+            </div>
+
+            <p class="demo-note">
+                Demo note: this dashboard displays information saved in this browser.
+                It is not a live multi-user account system.
+            </p>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="cta-section">
+            <span>🚀</span>
+            <h2>Your skills deserve great opportunities.</h2>
+            <p>Start exploring projects or find the talent your idea needs.</p>
+            <a href="#projects" class="btn btn-light">Explore Opportunities</a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-main">
+            <div>
+                <a href="#home" class="logo footer-logo">Skill<span>Bridge</span></a>
+                <p>Bringing talented people and great ideas together.</p>
+            </div>
+
+            <div>
+                <h4>Explore</h4>
+                <a href="#projects">Find Projects</a>
+                <a href="#freelancers">Freelancers</a>
+                <a href="#post-project">Post a Project</a>
+            </div>
+
+            <div>
+                <h4>Get in Touch</h4>
+                <a href="mailto:hello@example.com">hello@example.com</a>
+                <p>Connect, collaborate, and create.</p>
+            </div>
+
+            <div>
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/" target="_blank"
+                       rel="noopener noreferrer">LinkedIn</a>
+                    <a href="https://www.instagram.com/" target="_blank"
+                       rel="noopener noreferrer">Instagram</a>
+                    <a href="https://github.com/" target="_blank"
+                       rel="noopener noreferrer">GitHub</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© <span id="currentYear"></span> SkillBridge. Made with care.</p>
+            <a href="#home">Back to top ↑</a>
+        </div>
+    </footer>
+
+    <!-- Proposal Modal -->
+    <div class="modal" id="proposalModal" role="dialog"
+         aria-modal="true" aria-labelledby="proposalHeading" hidden>
+        <div class="modal-content">
+            <button type="button" class="modal-close" id="closeModal"
+                    aria-label="Close proposal form">×</button>
+
+            <h2 id="proposalHeading">Submit Your Proposal</h2>
+            <p id="proposalProjectName" class="muted"></p>
+
+            <form id="proposalForm">
+                <input type="hidden" id="proposalProjectId">
+
+                <label for="freelancerName">Your name</label>
+                <input type="text" id="freelancerName" required maxlength="80">
+
+                <label for="freelancerEmail">Contact email</label>
+                <input type="email" id="freelancerEmail" required maxlength="120">
+
+                <label for="proposalCover">Cover letter</label>
+                <textarea id="proposalCover" rows="5" minlength="20"
+                          maxlength="1500"
+                          placeholder="Explain how you would complete this project..."
+                          required></textarea>
+
+                <label for="expectedBudget">Your expected budget (₹)</label>
+                <input type="number" id="expectedBudget" min="1"
+                       max="10000000" required>
+
+                <button type="submit" class="btn btn-primary full-button">
+                    Submit Proposal
+                </button>
+                <p class="form-message" id="proposalMessage" aria-live="polite"></p>
+            </form>
+        </div>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
